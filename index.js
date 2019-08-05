@@ -13,11 +13,19 @@ app.get('/api/:number', (req, res)=>{
     
     let angka=""
     for(let i=0; i < numberSplit.length; i++){
-            
         if(numberSplit[i] != 0){
             for(let j = 1; j < numberString.length; j++){
                 if(parseInt(numberSplit[i]) == j){
-                    angka+= numberString[j]   
+                    if(i == numberSplit.length-1){
+                        if(parseInt(numberSplit[i]) == 1){
+                            angka+="Satu"
+                        }else{
+                            angka+= numberString[j]
+                        }
+                    }else{
+                        angka+= numberString[j]
+                    }
+                       
                 }
             }
             if(numberSplit.length-i == 4){

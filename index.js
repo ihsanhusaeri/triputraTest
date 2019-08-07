@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 
 app.get('/api/:number', (req, res)=>{
     const number = req.params.number
-    let numberString = ["Nol", "Se", "Dua ", "Tiga ", "Empat ", "Lima ", "Enam ", "Tujuh ", "Delapan ", "Sembilan "]
+    let numberString = ["Satu", "Se", "Dua ", "Tiga ", "Empat ", "Lima ", "Enam ", "Tujuh ", "Delapan ", "Sembilan "]
     
     let numberSplit = number.split("")
     let numberSend = new Array()
@@ -18,14 +18,13 @@ app.get('/api/:number', (req, res)=>{
                 if(parseInt(numberSplit[i]) == j){
                     if(i == numberSplit.length-1){
                         if(parseInt(numberSplit[i]) == 1){
-                            angka+="Satu"
+                            angka+=numberString[0]
                         }else{
                             angka+= numberString[j]
                         }
                     }else{
                         angka+= numberString[j]
-                    }
-                       
+                    }     
                 }
             }
             if(numberSplit.length-i == 4){
